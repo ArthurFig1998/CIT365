@@ -50,6 +50,8 @@ namespace ConsoleApplication
 
             Console.WriteLine("The area of the glass is " +
             glassArea + " square metres");
+
+            Console.ReadKey();
         }
     }
 }
