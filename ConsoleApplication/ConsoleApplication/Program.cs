@@ -15,7 +15,7 @@ namespace ConsoleApplication
             string name;
             string location;
             var date = DateTime.Now;
-            DateTime Christmas = new DateTime(2019, 12, 25);
+            DateTime Christmas = new DateTime(date.Year, 12, 25);
             double daysUntilChristmas = Christmas.Subtract(DateTime.Today).TotalDays;
 
             Console.WriteLine("Please, enter your name:");
