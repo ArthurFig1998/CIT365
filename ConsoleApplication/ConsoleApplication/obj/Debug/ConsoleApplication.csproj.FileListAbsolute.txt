@@ -1,0 +1,7 @@
+C:\Users\arthu\Desktop\BYU-I\BYU-Idaho 2019\Fall 2019\CIT 365\ConsoleApplication\ConsoleApplication\bin\Debug\ConsoleApplication.exe.config
+C:\Users\arthu\Desktop\BYU-I\BYU-Idaho 2019\Fall 2019\CIT 365\ConsoleApplication\ConsoleApplication\bin\Debug\ConsoleApplication.exe
+C:\Users\arthu\Desktop\BYU-I\BYU-Idaho 2019\Fall 2019\CIT 365\ConsoleApplication\ConsoleApplication\bin\Debug\ConsoleApplication.pdb
+C:\Users\arthu\Desktop\BYU-I\BYU-Idaho 2019\Fall 2019\CIT 365\ConsoleApplication\ConsoleApplication\obj\Debug\ConsoleApplication.csprojAssemblyReference.cache
+C:\Users\arthu\Desktop\BYU-I\BYU-Idaho 2019\Fall 2019\CIT 365\ConsoleApplication\ConsoleApplication\obj\Debug\ConsoleApplication.csproj.CoreCompileInputs.cache
+C:\Users\arthu\Desktop\BYU-I\BYU-Idaho 2019\Fall 2019\CIT 365\ConsoleApplication\ConsoleApplication\obj\Debug\ConsoleApplication.exe
+C:\Users\arthu\Desktop\BYU-I\BYU-Idaho 2019\Fall 2019\CIT 365\ConsoleApplication\ConsoleApplication\obj\Debug\ConsoleApplication.pdb
