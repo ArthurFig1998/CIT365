@@ -51,6 +51,12 @@ namespace ConsoleApplication
             Console.WriteLine("The area of the glass is " +
             glassArea + " square metres");
 
+            float j;
+
+            j = (int)39.55;
+
+            Console.WriteLine("J is equal to: " + j);
+
             Console.ReadKey();
         }
     }
