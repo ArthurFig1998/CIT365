@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(384, 261);
             this.Name = "DisplayQuote";
             this.Text = "DisplayQuote";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DisplayQuote_FormClosed);
             this.ResumeLayout(false);
 
         }

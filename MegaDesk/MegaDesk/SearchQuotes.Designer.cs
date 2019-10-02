@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(384, 261);
             this.Name = "SearchQuotes";
             this.Text = "SearchQuotes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SearchQuotes_FormClosed);
             this.ResumeLayout(false);
 
         }

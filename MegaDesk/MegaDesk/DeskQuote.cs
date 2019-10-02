@@ -18,6 +18,11 @@ namespace MegaDesk
 
         public Desk Desk { get; set; }
 
+        public decimal getQuotePrice() {
+
+            return 0;
+        }
+
 
     }
 }

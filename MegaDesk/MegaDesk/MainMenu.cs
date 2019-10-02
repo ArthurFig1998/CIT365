@@ -26,21 +26,30 @@ namespace MegaDesk
         private void SearchQuotes_Click(object sender, EventArgs e)
         {
             this.search.Show();
+            Hide();
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
+            Application.Exit();
 
         }
 
         private void AddNewQuote_Click(object sender, EventArgs e)
         {
             this.add.Show();
+            Hide();
         }
 
         private void ViewQuotes_Click(object sender, EventArgs e)
         {
             this.display.Show();
+            Hide();
+        }
+
+        private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
