@@ -15,11 +15,14 @@ namespace MegaDesk
         public AddQuote()
         {
             InitializeComponent();
+            DateTime date = DateTime.Now;
+            dateLabel.Text = date.ToString("dd MMMM yyy");
         }
 
         private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
         {
             (new MainMenu()).Show();
         }
+
     }
 }

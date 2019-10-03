@@ -15,6 +15,7 @@ namespace MegaDesk
         public MainMenu()
         {
             InitializeComponent();
+
         }
 
         SearchQuotes search = new SearchQuotes();
