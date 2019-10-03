@@ -11,6 +11,21 @@ namespace ConsoleApplication
         static void Main(string[] args)
         {
 
+           
+            Console.WriteLine("Testing out:");
+            int jobber;
+            for (jobber = 0; jobber < 10; jobber = jobber + 1)
+            {
+                Console.WriteLine("Hello");
+            }
+            Console.WriteLine(jobber);
+
+
+
+
+
+
+
             // Part One
             string name;
             string location;
