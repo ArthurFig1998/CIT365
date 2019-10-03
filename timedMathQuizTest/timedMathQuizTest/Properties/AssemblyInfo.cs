@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TimedMathQuiz")]
+[assembly: AssemblyTitle("timedMathQuizTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Hewlett-Packard")]
-[assembly: AssemblyProduct("TimedMathQuiz")]
+[assembly: AssemblyProduct("timedMathQuizTest")]
 [assembly: AssemblyCopyright("Copyright © Hewlett-Packard 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c95683fd-72a9-43f1-aecb-1eff3959f5c3")]
+[assembly: Guid("bda87345-92c9-4921-a000-49182cee8bee")]
 
 // Version information for an assembly consists of the following four values:
 //

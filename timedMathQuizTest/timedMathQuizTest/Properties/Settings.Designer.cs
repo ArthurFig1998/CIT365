@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TimedMathQuiz.Properties
+namespace timedMathQuizTest.Properties
 {
 
 

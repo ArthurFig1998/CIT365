@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C95683FD-72A9-43F1-AECB-1EFF3959F5C3}</ProjectGuid>
+    <ProjectGuid>{BDA87345-92C9-4921-A000-49182CEE8BEE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TimedMathQuiz</RootNamespace>
-    <AssemblyName>TimedMathQuiz</AssemblyName>
+    <RootNamespace>timedMathQuizTest</RootNamespace>
+    <AssemblyName>timedMathQuizTest</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,9 +49,9 @@
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Content Include="Form1.Designer.cs">
+    <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Content>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
