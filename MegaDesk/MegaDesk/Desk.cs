@@ -17,9 +17,9 @@ namespace MegaDesk
             Veneer,
             Pine
         }
-        public int Width { get; set; }
+        public decimal Width { get; set; }
 
-        public int Depth { get; set; }
+        public decimal Depth { get; set; }
 
         public DesktopMaterial SurfaceMaterial { get; set; }
 

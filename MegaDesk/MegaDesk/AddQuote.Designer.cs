@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CustomerName = new System.Windows.Forms.Label();
+            this.Name = new System.Windows.Forms.Label();
             this.Width = new System.Windows.Forms.Label();
             this.Depth = new System.Windows.Forms.Label();
             this.NumberOfDrawers = new System.Windows.Forms.Label();
@@ -39,7 +39,7 @@
             this.numDrawers = new System.Windows.Forms.NumericUpDown();
             this.comSurfaceMaterial = new System.Windows.Forms.ComboBox();
             this.comShippingType = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.customerName = new System.Windows.Forms.TextBox();
             this.todaysDate = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.sendQuote = new System.Windows.Forms.Button();
@@ -49,14 +49,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numDrawers)).BeginInit();
             this.SuspendLayout();
             // 
-            // CustomerName
+            // Name
             // 
-            this.CustomerName.AutoSize = true;
-            this.CustomerName.Location = new System.Drawing.Point(64, 100);
-            this.CustomerName.Name = "CustomerName";
-            this.CustomerName.Size = new System.Drawing.Size(35, 13);
-            this.CustomerName.TabIndex = 0;
-            this.CustomerName.Text = "Name";
+            this.Name.AutoSize = true;
+            this.Name.Location = new System.Drawing.Point(64, 100);
+            this.Name.Name = "Name";
+            this.Name.Size = new System.Drawing.Size(35, 13);
+            this.Name.TabIndex = 0;
+            this.Name.Text = "Name";
             // 
             // Width
             // 
@@ -175,12 +175,12 @@
             this.comShippingType.Size = new System.Drawing.Size(121, 21);
             this.comShippingType.TabIndex = 10;
             // 
-            // textBox1
+            // customerName
             // 
-            this.textBox1.Location = new System.Drawing.Point(165, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 20);
-            this.textBox1.TabIndex = 11;
+            this.customerName.Location = new System.Drawing.Point(165, 97);
+            this.customerName.Name = "customerName";
+            this.customerName.Size = new System.Drawing.Size(250, 20);
+            this.customerName.TabIndex = 11;
             // 
             // todaysDate
             // 
@@ -228,7 +228,7 @@
             this.Controls.Add(this.sendQuote);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.todaysDate);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.customerName);
             this.Controls.Add(this.comShippingType);
             this.Controls.Add(this.comSurfaceMaterial);
             this.Controls.Add(this.numDrawers);
@@ -239,7 +239,7 @@
             this.Controls.Add(this.NumberOfDrawers);
             this.Controls.Add(this.Depth);
             this.Controls.Add(this.Width);
-            this.Controls.Add(this.CustomerName);
+            this.Controls.Add(this.Name);
             this.Name = "AddQuote";
             this.Text = "Add New Quote";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
@@ -253,7 +253,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label CustomerName;
+        private System.Windows.Forms.Label Name;
         private System.Windows.Forms.Label Width;
         private System.Windows.Forms.Label Depth;
         private System.Windows.Forms.Label NumberOfDrawers;
@@ -264,7 +264,7 @@
         private System.Windows.Forms.NumericUpDown numDrawers;
         private System.Windows.Forms.ComboBox comSurfaceMaterial;
         private System.Windows.Forms.ComboBox comShippingType;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox customerName;
         private System.Windows.Forms.Label todaysDate;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Button sendQuote;

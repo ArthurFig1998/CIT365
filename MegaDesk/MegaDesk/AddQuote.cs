@@ -41,6 +41,12 @@ namespace MegaDesk
         private void SendQuote_Click(object sender, EventArgs e)
         {
             Desk desk = new Desk();
+            DeskQuote quote = new DeskQuote();
+            DateTime date = DateTime.Now;
+
+            quote.CustomerName = customerName.Text;
+            quote.QuoteDate = date;
+
 
            // desk.Depth = numDepth.Value;
 
