@@ -8,6 +8,13 @@ namespace MegaDesk
 {
     public class DeskQuote
     {
+        public enum Shipping
+        {
+            Rush3Days,
+            Rush5Days,
+            Rush7Days,
+            Normal14Days
+        }
         public string CustomerName { get; set; }
 
         public DateTime QuoteDate { get; set; }
