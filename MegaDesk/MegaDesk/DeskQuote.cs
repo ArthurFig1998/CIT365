@@ -61,15 +61,42 @@ namespace MegaDesk
 
             //add surface material cost
 
-            var surfaceMaterialChoice
-            var surfaceMaterialCost = this.Desk.SurfaceMaterial;
+            var surfaceMaterial = this.Desk.SurfaceMaterial;
+            var surfaceMaterialCost = 0M;
 
-            if(surface)
+            switch (surfaceMaterial)
+            {
+                case DesktopMaterial.Oak:
+                    surfaceMaterialCost = OAK_COST;
+                    break;
+
+                case DesktopMaterial.Laminate:
+                    surfaceMaterialCost = LAMINATE_COST;
+                    break;
+
+                case DesktopMaterial.Pine:
+                    surfaceMaterialCost = PINE_COST;
+                    break;
+
+                case DesktopMaterial.Rosewood:
+                    surfaceMaterialCost = ROSEWOOD_COST;
+                    break;
+
+                case DesktopMaterial.Veneer:
+                    surfaceMaterialCost = VENEER_COST;
+                    break;
+
+            }
+
+            total = +surfaceMaterialCost;
+
+            //add shipping cost
+            //TO DO...
 
 
 
 
-            return 0;
+            return total;
         }
 
 
