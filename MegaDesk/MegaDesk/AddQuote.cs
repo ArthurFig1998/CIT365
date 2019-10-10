@@ -46,6 +46,7 @@ namespace MegaDesk
 
             quote.CustomerName = customerName.Text;
             quote.QuoteDate = date;
+            quote
 
 
            // desk.Depth = numDepth.Value;
