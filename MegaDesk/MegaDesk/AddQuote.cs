@@ -18,15 +18,15 @@ namespace MegaDesk
             DateTime date = DateTime.Now;
             dateLabel.Text = date.ToString("dd MMMM yyy");
 
-            var materials = new List<Desk.DesktopMaterial>();
-            materials = Enum.GetValues(typeof(Desk.DesktopMaterial)).Cast<Desk.DesktopMaterial>().ToList();
+            var materials = new List<DesktopMaterial>();
+            materials = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
 
             comSurfaceMaterial.DataSource = materials;
 
             comSurfaceMaterial.SelectedIndex = -1;
 
-            var shipping = new List<DeskQuote.Shipping>();
-            shipping = Enum.GetValues(typeof(DeskQuote.Shipping)).Cast<DeskQuote.Shipping>().ToList();
+            var shipping = new List<Shipping>();
+            shipping = Enum.GetValues(typeof(Shipping)).Cast<Shipping>().ToList();
 
             comShippingType.DataSource = shipping;
 
@@ -41,15 +41,21 @@ namespace MegaDesk
         private void SendQuote_Click(object sender, EventArgs e)
         {
             Desk desk = new Desk();
+            desk.Depth = numDepth.Value;
+            desk.Width = numWidth.Value;
             DeskQuote quote = new DeskQuote();
             DateTime date = DateTime.Now;
 
             quote.CustomerName = customerName.Text;
             quote.QuoteDate = date;
-            quote
+            quote.Desk = desk;
+            quote.QuotePrice = quote.getQuotePrice();
+
+                System.Windows.Forms.MessageBox.Show("Quote price is: " + quote.QuotePrice);
 
 
-           // desk.Depth = numDepth.Value;
+
+            // desk.Depth = numDepth.Value;
 
         }
     }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Name = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
             this.Width = new System.Windows.Forms.Label();
             this.Depth = new System.Windows.Forms.Label();
             this.NumberOfDrawers = new System.Windows.Forms.Label();
@@ -49,14 +49,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numDrawers)).BeginInit();
             this.SuspendLayout();
             // 
-            // Name
+            // nameLabel
             // 
-            this.Name.AutoSize = true;
-            this.Name.Location = new System.Drawing.Point(64, 100);
-            this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(35, 13);
-            this.Name.TabIndex = 0;
-            this.Name.Text = "Name";
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(64, 100);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(35, 13);
+            this.nameLabel.TabIndex = 0;
+            this.nameLabel.Text = "Name";
             // 
             // Width
             // 
@@ -239,7 +239,7 @@
             this.Controls.Add(this.NumberOfDrawers);
             this.Controls.Add(this.Depth);
             this.Controls.Add(this.Width);
-            this.Controls.Add(this.Name);
+            this.Controls.Add(this.nameLabel);
             this.Name = "AddQuote";
             this.Text = "Add New Quote";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
@@ -253,7 +253,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label Name;
+        private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label Width;
         private System.Windows.Forms.Label Depth;
         private System.Windows.Forms.Label NumberOfDrawers;

@@ -7,6 +7,13 @@ using System.IO;
 
 namespace MegaDesk
 {
+    public enum Shipping
+    {
+        Rush3Days,
+        Rush5Days,
+        Rush7Days,
+        Normal14Days
+    }
     public class DeskQuote
     {
         const decimal BASE_DESK_PRICE = 200.00M;
@@ -17,19 +24,14 @@ namespace MegaDesk
         const decimal PINE_COST = 50.00M;
         const decimal ROSEWOOD_COST = 300.00M;
         const decimal VENEER_COST = 125.00M;
+        
 
-        public enum Shipping
-        {
-            Rush3Days,
-            Rush5Days,
-            Rush7Days,
-            Normal14Days
-        }
+        
         public string CustomerName { get; set; }
 
         public DateTime QuoteDate { get; set; }
 
-        public string ShippingType { get; set; }
+        public Shipping ShippingType { get; set; }
 
         public decimal QuotePrice { get; set; }
 
@@ -92,7 +94,70 @@ namespace MegaDesk
             total = +surfaceMaterialCost;
 
             //add shipping cost
-            //TO DO...
+
+            var shippingCostTotal = 0M;
+
+            //check if any extra shipping cost is needed
+            if (ShippingType != Shipping.Normal14Days)
+            {
+                const int SMALL_DESK = 0;
+                const int MEDIUM_DESK = 1;
+                const int LARGE_DESK = 2;
+                const int THREE_DAYS = 0;
+                const int FIVE_DAYS = 1;
+                const int SEVEN_DAYS = 2;
+
+                //determine array index for shipping type
+                int iShipping = 0;
+
+                switch (ShippingType)
+                {
+                    case Shipping.Rush3Days:
+                        iShipping = THREE_DAYS;
+                        break;
+                    case Shipping.Rush5Days:
+                        iShipping = FIVE_DAYS;
+                        break;
+                    case Shipping.Rush7Days:
+                        iShipping = SEVEN_DAYS;
+                        break;
+                }
+
+                //determine array index for desk size
+                var deskArea = this.Desk.Depth * this.Desk.Width;
+                int iDeskSize;
+
+                if (deskArea < 1000)
+                {
+                    iDeskSize = SMALL_DESK;
+                }
+                else if (deskArea >= 1000 && deskArea < 2000)
+                {
+                    iDeskSize = MEDIUM_DESK;
+                }
+                else
+                {
+                    iDeskSize = LARGE_DESK;
+                }
+
+                //read file into 2D array
+                const int NUM_SHIPPING_TYPES =3;
+                const int NUM_DESK_SIZES = 3;
+                decimal[,] shippingCosts = new decimal[NUM_SHIPPING_TYPES, NUM_DESK_SIZES];
+                StreamReader file = new StreamReader("../shippingCost.txt");
+                
+                for (int i = 0; i <= NUM_SHIPPING_TYPES; i++)
+                {
+                    for (int j = 0; j <= NUM_DESK_SIZES; j++)
+                    {
+                        
+                        shippingCosts[i, j] = decimal.Parse(file.ReadLine());
+                    }
+                }
+                shippingCostTotal = shippingCosts[iShipping, iDeskSize];
+            }
+
+
 
 
 
