@@ -146,9 +146,10 @@ namespace MegaDesk
                 decimal[,] shippingCosts = new decimal[NUM_SHIPPING_TYPES, NUM_DESK_SIZES];
                 StreamReader file = new StreamReader("../shippingCost.txt");
                 
-                for (int i = 0; i < NUM_SHIPPING_TYPES; i++)
+                for (int j = 0; j < NUM_SHIPPING_TYPES; j++)
                 {
-                    for (int j = 0; j < NUM_DESK_SIZES; j++)
+                    shippingCosts[0,j] = decimal.Parse(file.ReadLine());
+                    for (int i = 1; i < NUM_DESK_SIZES; i++)
                     {
                         
                         shippingCosts[i, j] = decimal.Parse(file.ReadLine());
