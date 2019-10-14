@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace ConsoleApplication
 {
@@ -13,12 +14,12 @@ namespace ConsoleApplication
 
            
             Console.WriteLine("Testing out:");
-            int jobber;
-            for (jobber = 0; jobber < 10; jobber = jobber + 1)
-            {
-                Console.WriteLine("Hello");
-            }
-            Console.WriteLine(jobber);
+            ArrayList theBooks = new ArrayList();
+            theBooks.Add("Nephi");
+            theBooks.Add("Jacob");
+            theBooks.Add("Alma");
+            theBooks.Add("Moroni");
+            Console.WriteLine("Count: {0}", theBooks.Count);
 
 
 
