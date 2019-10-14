@@ -155,12 +155,10 @@ namespace MegaDesk
                     }
                 }
                 shippingCostTotal = shippingCosts[iShipping, iDeskSize];
+
+                // add the shipping cost to the total cost
+                total += shippingCostTotal;
             }
-
-
-
-
-
 
             return total;
         }
