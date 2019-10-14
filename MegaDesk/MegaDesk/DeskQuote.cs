@@ -44,6 +44,8 @@ namespace MegaDesk
             //adding base price
             total = BASE_DESK_PRICE;
 
+
+            //System.Windows.Forms.MessageBox.Show("Quote price is: " + total);
             //add surface area price
 
             var surfaceArea = this.Desk.Width * this.Desk.Depth;
@@ -91,7 +93,7 @@ namespace MegaDesk
 
             }
 
-            total = +surfaceMaterialCost;
+            total += surfaceMaterialCost;
 
             //add shipping cost
 
@@ -144,22 +146,45 @@ namespace MegaDesk
                 const int NUM_SHIPPING_TYPES =3;
                 const int NUM_DESK_SIZES = 3;
                 decimal[,] shippingCosts = new decimal[NUM_SHIPPING_TYPES, NUM_DESK_SIZES];
-                StreamReader file = new StreamReader("../shippingCost.txt");
                 
-                for (int j = 0; j < NUM_SHIPPING_TYPES; j++)
+                //StreamReader file = new StreamReader("../shippingCost.txt");
+                
+                try
                 {
-                    shippingCosts[0,j] = decimal.Parse(file.ReadLine());
-                    for (int i = 1; i < NUM_DESK_SIZES; i++)
+                    string[] prices = File.ReadAllLines(@"shippingCost.txt");
+                    int i = 0, j = 0;
+                    foreach(string price in prices)
                     {
-                        
-                        shippingCosts[i, j] = decimal.Parse(file.ReadLine());
+                        shippingCosts[i, j] = decimal.Parse(price);
+                        if (j == 2)
+                        {
+                            j = 0;
+                            i++;
+                        }
+                        else
+                        {
+                            j++;
+                        }
                     }
                 }
+                catch(Exception e)
+                {
+                    throw;
+                }
+                /*for (int i = 0; i < NUM_SHIPPING_TYPES; i++)
+                {
+                    for (int j = 0; j < NUM_DESK_SIZES; j++)
+                    {
+                        //shippingCosts[i, j] = decimal.Parse(file.ReadLine());
+                    }
+                }*/
                 shippingCostTotal = shippingCosts[iShipping, iDeskSize];
-
-                // add the shipping cost to the total cost
-                total += shippingCostTotal;
             }
+
+
+            total += shippingCostTotal;
+
+
 
             return total;
         }
