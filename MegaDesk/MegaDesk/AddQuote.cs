@@ -43,6 +43,7 @@ namespace MegaDesk
             Desk desk = new Desk();
             desk.Depth = numDepth.Value;
             desk.Width = numWidth.Value;
+            desk.NumberOfDrawers = numDrawers.Value;
             DeskQuote quote = new DeskQuote();
             DateTime date = DateTime.Now;
 
