@@ -40,19 +40,24 @@ namespace MegaDesk
 
         private void SendQuote_Click(object sender, EventArgs e)
         {
+            // create new desk
             Desk desk = new Desk();
             desk.Depth = numDepth.Value;
             desk.Width = numWidth.Value;
-            desk.NumberOfDrawers = numDrawers.Value;
+            desk.NumberOfDrawers = (int)numDrawers.Value;
+            desk.SurfaceMaterial = (DesktopMaterial)comSurfaceMaterial.SelectedItem;
+
+            // create Desk quote
             DeskQuote quote = new DeskQuote();
             DateTime date = DateTime.Now;
+            quote.ShippingType = (Shipping)comShippingType.SelectedItem;
 
             quote.CustomerName = customerName.Text;
             quote.QuoteDate = date;
             quote.Desk = desk;
             quote.QuotePrice = quote.getQuotePrice();
 
-                System.Windows.Forms.MessageBox.Show("Quote price is: " + quote.QuotePrice);
+                System.Windows.Forms.MessageBox.Show("Desk Top Surface price is: " + desk.SurfaceMaterial);
 
 
 
