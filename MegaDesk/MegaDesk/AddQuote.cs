@@ -57,11 +57,9 @@ namespace MegaDesk
             quote.Desk = desk;
             quote.QuotePrice = quote.getQuotePrice();
 
-                System.Windows.Forms.MessageBox.Show("Shipping price is: " + quote.ShippingType);
+                System.Windows.Forms.MessageBox.Show("Shipping price is: " + quote.QuotePrice);
 
-
-
-            // desk.Depth = numDepth.Value;
+            
 
         }
     }
