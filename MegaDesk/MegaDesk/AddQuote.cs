@@ -57,7 +57,7 @@ namespace MegaDesk
             quote.Desk = desk;
             quote.QuotePrice = quote.getQuotePrice();
 
-                System.Windows.Forms.MessageBox.Show("Desk Top Surface price is: " + desk.SurfaceMaterial);
+                System.Windows.Forms.MessageBox.Show("Shipping price is: " + quote.ShippingType);
 
 
 
