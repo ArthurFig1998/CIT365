@@ -39,34 +39,37 @@ namespace MegaDesk
 
         public decimal getQuotePrice() {
 
-            decimal total = 0;
+            // start the total at the base price
+            decimal total = BASE_DESK_PRICE;
 
-            //adding base price
-            total = BASE_DESK_PRICE;
-
-
-            //System.Windows.Forms.MessageBox.Show("Quote price is: " + total);
-            //add surface area price
-
-            var surfaceArea = this.Desk.Width * this.Desk.Depth;
-
+            // SURFACE AREA
+            // initiatilze the price for desk surface area
             var surfaceAreaPrice = 0M;
 
-            if(surfaceArea > 1000)
+            // calculate desk surface area
+            var surfaceArea = this.Desk.Width * this.Desk.Depth;
+
+            if (surfaceArea > 1000)
             {
                 surfaceAreaPrice = (surfaceArea - 1000) * PRICE_PER_INCH;
             }
+
+            // add it to the total
             total += surfaceAreaPrice;
 
-            //add drawers cost
-
+            // DRAWERS
+            // calculate cost of drawers
             var drawerCost = this.Desk.NumberOfDrawers * DRAWER_COST;
 
+            // add it to the total
             total += drawerCost;
 
-            //add surface material cost
-
+            // SURFACE MATERIAL
+            
+            // get the surface material
             var surfaceMaterial = this.Desk.SurfaceMaterial;
+            
+            // initialize surface material cost
             var surfaceMaterialCost = 0M;
 
             switch (surfaceMaterial)
@@ -90,16 +93,16 @@ namespace MegaDesk
                 case DesktopMaterial.Veneer:
                     surfaceMaterialCost = VENEER_COST;
                     break;
-
             }
 
+            // add it to the total
             total += surfaceMaterialCost;
 
-            //add shipping cost
-
+            // SHIPPING
+            // initialize the shipping cost
             var shippingCostTotal = 0M;
 
-            //check if any extra shipping cost is needed
+            // check if any extra shipping cost is needed
             if (ShippingType != Shipping.Normal14Days)
             {
                 const int SMALL_DESK = 0;
@@ -109,9 +112,8 @@ namespace MegaDesk
                 const int FIVE_DAYS = 1;
                 const int SEVEN_DAYS = 2;
 
-                //determine array index for shipping type
+                //set array index for shipping type
                 int iShipping = 0;
-
                 switch (ShippingType)
                 {
                     case Shipping.Rush3Days:
@@ -125,7 +127,7 @@ namespace MegaDesk
                         break;
                 }
 
-                //determine array index for desk size
+                // set array index for desk size
                 var deskArea = this.Desk.Depth * this.Desk.Width;
                 int iDeskSize;
 
@@ -142,12 +144,10 @@ namespace MegaDesk
                     iDeskSize = LARGE_DESK;
                 }
 
-                //read file into 2D array
+                // read file into 2D array
                 const int NUM_SHIPPING_TYPES =3;
                 const int NUM_DESK_SIZES = 3;
                 decimal[,] shippingCosts = new decimal[NUM_SHIPPING_TYPES, NUM_DESK_SIZES];
-                
-                //StreamReader file = new StreamReader("../shippingCost.txt");
                 
                 try
                 {
@@ -171,24 +171,16 @@ namespace MegaDesk
                 {
                     throw;
                 }
-                /*for (int i = 0; i < NUM_SHIPPING_TYPES; i++)
-                {
-                    for (int j = 0; j < NUM_DESK_SIZES; j++)
-                    {
-                        //shippingCosts[i, j] = decimal.Parse(file.ReadLine());
-                    }
-                }*/
+
+                // get the shipping cost from the array
                 shippingCostTotal = shippingCosts[iShipping, iDeskSize];
             }
 
-
+            // add shipping cost to the total
             total += shippingCostTotal;
 
-
-
+            // RETURN TOTAL PRICE
             return total;
         }
-
-
     }
 }
