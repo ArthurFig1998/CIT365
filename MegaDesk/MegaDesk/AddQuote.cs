@@ -58,9 +58,10 @@ namespace MegaDesk
             }
 
             deskQuotes.Add(deskQuote);
+        }
 
-            //System.Windows.Forms.MessageBox.Show("JSON is: " + deserializedQuote);
-
+        private void SaveQuotes(List<DeskQuote> quotes)
+        {
 
         }
 
