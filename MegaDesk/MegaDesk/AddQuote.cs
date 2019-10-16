@@ -28,14 +28,14 @@ namespace MegaDesk
 
             comSurfaceMaterial.DataSource = materials;
 
-            comSurfaceMaterial.SelectedIndex = -1;
+            comSurfaceMaterial.SelectedIndex = 0;
 
             var shipping = new List<Shipping>();
             shipping = Enum.GetValues(typeof(Shipping)).Cast<Shipping>().ToList();
 
             comShippingType.DataSource = shipping;
 
-            comShippingType.SelectedIndex = -1;
+            comShippingType.SelectedIndex = 0;
         }
 
         public void addToFile(DeskQuote deskQuote)
@@ -101,7 +101,9 @@ namespace MegaDesk
 
             addToFile(quote);
 
-               // System.Windows.Forms.MessageBox.Show("Shipping price is: " + quote.QuotePrice);
+            System.Windows.Forms.MessageBox.Show("Added quote. The price is: " + quote.QuotePrice);
+            (new MainMenu()).Show();
+            Hide();
 
             
 

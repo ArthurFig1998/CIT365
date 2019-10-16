@@ -10,10 +10,10 @@ namespace MegaDesk
 {
     public enum Shipping
     {
+        Normal14Days,
         Rush3Days,
         Rush5Days,
-        Rush7Days,
-        Normal14Days
+        Rush7Days
     }
     public class DeskQuote
     {
