@@ -14,6 +14,9 @@ namespace MegaDesk
 {
     public partial class AddQuote : Form
     {
+        // path to the json file of deskQuotes
+        const string PATH = @"quotes.json";
+
         public AddQuote()
         {
             InitializeComponent();
@@ -36,15 +39,12 @@ namespace MegaDesk
         }
 
         public void addToFile(DeskQuote deskQuote)
-        {
-            var path = @"quotes.json";
-            
+        {            
             List<DeskQuote> deskQuotes = new List<DeskQuote>();
 
-
-            if (File.Exists(path))
+            if (File.Exists(PATH))
             {
-                using (StreamReader reader = new StreamReader(path))
+                using (StreamReader reader = new StreamReader(PATH))
                 {
                     // Read all quotes on file
                     string quotes = reader.ReadToEnd();
@@ -57,12 +57,22 @@ namespace MegaDesk
                 }
             }
 
+            // add the new quote to the list of deskQuotes
             deskQuotes.Add(deskQuote);
+
+            // save the list of deskQuotes to the file (overwrite old file)
+            SaveQuotes(deskQuotes);
         }
 
         private void SaveQuotes(List<DeskQuote> quotes)
         {
+            string deskQuotesJson = JsonConvert.SerializeObject(quotes, Formatting.Indented);
 
+            using (StreamWriter writer = new StreamWriter(PATH, false))
+            {
+                writer.WriteLine(deskQuotesJson);
+                writer.Close();
+            }
         }
 
         private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
