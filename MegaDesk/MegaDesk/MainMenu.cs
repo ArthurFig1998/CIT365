@@ -44,7 +44,7 @@ namespace MegaDesk
 
         private void ViewQuotes_Click(object sender, EventArgs e)
         {
-            this.display.Show();
+            this.viewAll.Show();
             Hide();
         }
 

@@ -28,20 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.quotesDataGrid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.quotesDataGrid)).BeginInit();
             this.SuspendLayout();
+            // 
+            // quotesDataGrid
+            // 
+            this.quotesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.quotesDataGrid.Location = new System.Drawing.Point(-2, 0);
+            this.quotesDataGrid.Name = "quotesDataGrid";
+            this.quotesDataGrid.Size = new System.Drawing.Size(884, 265);
+            this.quotesDataGrid.TabIndex = 0;
             // 
             // ViewAllQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 261);
+            this.ClientSize = new System.Drawing.Size(880, 261);
+            this.Controls.Add(this.quotesDataGrid);
             this.Name = "ViewAllQuotes";
             this.Text = "ViewAllQuotes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ViewAllQuotes_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.quotesDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView quotesDataGrid;
     }
 }
