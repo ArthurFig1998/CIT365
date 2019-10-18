@@ -18,6 +18,14 @@ namespace MegaDesk
         public SearchQuotes()
         {
             InitializeComponent();
+            
+            var materials = new List<DesktopMaterial>();
+            materials = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
+
+            comSurfaceMaterialSearch.DataSource = materials;
+
+            comSurfaceMaterialSearch.SelectedIndex = 0;
+
             loadGrid();
         }
 
@@ -44,8 +52,11 @@ namespace MegaDesk
                     Drawers = d.Desk.NumberOfDrawers,
                     SurfaceMaterial = d.Desk.SurfaceMaterial,
                     QuoteAmount = d.QuotePrice.ToString("c")
-                }).ToList();
+                }).Where(q => 
+                    q.SurfaceMaterial == (DesktopMaterial)comSurfaceMaterialSearch.SelectedItem
+                ).ToList();
             }
         }
+
     }
 }

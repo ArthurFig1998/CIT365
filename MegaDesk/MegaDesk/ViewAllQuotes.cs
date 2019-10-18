@@ -19,6 +19,7 @@ namespace MegaDesk
         {
             InitializeComponent();
             loadGrid();
+            
         }
 
         private void ViewAllQuotes_FormClosed(object sender, FormClosedEventArgs e)
