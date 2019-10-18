@@ -21,5 +21,10 @@ namespace MegaDesk
         {
             (new MainMenu()).Show();
         }
+
+        private void loadGrid()
+        {
+
+        }
     }
 }

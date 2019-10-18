@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.quotesDataGrid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.quotesDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // quotesDataGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(99, 69);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.quotesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.quotesDataGrid.Location = new System.Drawing.Point(-1, 1);
+            this.quotesDataGrid.Name = "quotesDataGrid";
+            this.quotesDataGrid.Size = new System.Drawing.Size(755, 259);
+            this.quotesDataGrid.TabIndex = 0;
             // 
             // DisplayQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 261);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(753, 261);
+            this.Controls.Add(this.quotesDataGrid);
             this.Name = "DisplayQuote";
             this.Text = "DisplayQuote";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DisplayQuote_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quotesDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView quotesDataGrid;
     }
 }
