@@ -59,7 +59,8 @@
             this.comSurfaceMaterialSearch.Name = "comSurfaceMaterialSearch";
             this.comSurfaceMaterialSearch.Size = new System.Drawing.Size(189, 21);
             this.comSurfaceMaterialSearch.TabIndex = 2;
-            
+            this.comSurfaceMaterialSearch.SelectedIndexChanged += new System.EventHandler(this.ComSurfaceMaterialSearch_SelectedIndexChanged);
+            this.comSurfaceMaterialSearch.TextChanged += new System.EventHandler(this.ComSurfaceMaterialSearch_TextChanged);
             // 
             // SearchQuotes
             // 

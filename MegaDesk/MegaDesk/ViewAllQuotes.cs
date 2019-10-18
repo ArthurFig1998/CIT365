@@ -18,6 +18,8 @@ namespace MegaDesk
         public ViewAllQuotes()
         {
             InitializeComponent();
+
+            //loads the table when the form is initialized
             loadGrid();
             
         }
@@ -36,6 +38,7 @@ namespace MegaDesk
 
                 List<DeskQuote> deskQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(quotes);
 
+                //select all items of the table
                 quotesDataGrid.DataSource = deskQuotes.Select(d => new
                 {
                     Date = d.QuoteDate,
