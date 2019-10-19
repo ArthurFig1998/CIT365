@@ -18,10 +18,11 @@ namespace MegaDesk
         {
             InitializeComponent();
 
+            customerName.Text = quote.CustomerName;
             numWidth.Value = quote.Desk.Width;
             numDepth.Value = quote.Desk.Depth;
-            comSurfaceMaterial.SelectedItem = quote.Desk.SurfaceMaterial;
-            comShippingType.SelectedItem = quote.ShippingType;
+            surfaceMaterialText.Text = Convert.ToString(quote.Desk.SurfaceMaterial);
+            shippingTypeText.Text = Convert.ToString(quote.ShippingType);
             numDrawers.Value = quote.Desk.NumberOfDrawers;
 
             quotePriceBox.Text = Convert.ToString(quote.QuotePrice);
@@ -32,6 +33,10 @@ namespace MegaDesk
             (new MainMenu()).Show();
         }
 
-        
+        private void SendQuote_Click(object sender, EventArgs e)
+        {
+            (new MainMenu()).Show();
+            Hide();
+        }
     }
 }

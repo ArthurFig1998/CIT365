@@ -20,7 +20,6 @@ namespace MegaDesk
 
         SearchQuotes search = new SearchQuotes();
         AddQuote add = new AddQuote();
-        DisplayQuote display = new DisplayQuote();
         ViewAllQuotes viewAll = new ViewAllQuotes();
         
 

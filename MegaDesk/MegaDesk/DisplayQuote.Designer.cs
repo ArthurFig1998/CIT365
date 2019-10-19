@@ -33,8 +33,6 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.todaysDate = new System.Windows.Forms.Label();
             this.customerName = new System.Windows.Forms.TextBox();
-            this.comShippingType = new System.Windows.Forms.ComboBox();
-            this.comSurfaceMaterial = new System.Windows.Forms.ComboBox();
             this.numDrawers = new System.Windows.Forms.NumericUpDown();
             this.numDepth = new System.Windows.Forms.NumericUpDown();
             this.numWidth = new System.Windows.Forms.NumericUpDown();
@@ -47,6 +45,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.quotePriceBox = new System.Windows.Forms.TextBox();
+            this.surfaceMaterialText = new System.Windows.Forms.TextBox();
+            this.shippingTypeText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numDrawers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDepth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWidth)).BeginInit();
@@ -74,6 +74,7 @@
             this.sendQuote.TabIndex = 30;
             this.sendQuote.Text = "Done";
             this.sendQuote.UseVisualStyleBackColor = true;
+            this.sendQuote.Click += new System.EventHandler(this.SendQuote_Click);
             // 
             // dateLabel
             // 
@@ -101,26 +102,6 @@
             this.customerName.Name = "customerName";
             this.customerName.Size = new System.Drawing.Size(332, 22);
             this.customerName.TabIndex = 27;
-            // 
-            // comShippingType
-            // 
-            this.comShippingType.Enabled = false;
-            this.comShippingType.FormattingEnabled = true;
-            this.comShippingType.Location = new System.Drawing.Point(570, 256);
-            this.comShippingType.Margin = new System.Windows.Forms.Padding(4);
-            this.comShippingType.Name = "comShippingType";
-            this.comShippingType.Size = new System.Drawing.Size(160, 24);
-            this.comShippingType.TabIndex = 26;
-            // 
-            // comSurfaceMaterial
-            // 
-            this.comSurfaceMaterial.Enabled = false;
-            this.comSurfaceMaterial.FormattingEnabled = true;
-            this.comSurfaceMaterial.Location = new System.Drawing.Point(570, 208);
-            this.comSurfaceMaterial.Margin = new System.Windows.Forms.Padding(4);
-            this.comSurfaceMaterial.Name = "comSurfaceMaterial";
-            this.comSurfaceMaterial.Size = new System.Drawing.Size(160, 24);
-            this.comSurfaceMaterial.TabIndex = 25;
             // 
             // numDrawers
             // 
@@ -272,11 +253,31 @@
             this.quotePriceBox.Size = new System.Drawing.Size(109, 22);
             this.quotePriceBox.TabIndex = 33;
             // 
+            // surfaceMaterialText
+            // 
+            this.surfaceMaterialText.Enabled = false;
+            this.surfaceMaterialText.Location = new System.Drawing.Point(557, 209);
+            this.surfaceMaterialText.Margin = new System.Windows.Forms.Padding(4);
+            this.surfaceMaterialText.Name = "surfaceMaterialText";
+            this.surfaceMaterialText.Size = new System.Drawing.Size(160, 22);
+            this.surfaceMaterialText.TabIndex = 34;
+            // 
+            // shippingTypeText
+            // 
+            this.shippingTypeText.Enabled = false;
+            this.shippingTypeText.Location = new System.Drawing.Point(557, 256);
+            this.shippingTypeText.Margin = new System.Windows.Forms.Padding(4);
+            this.shippingTypeText.Name = "shippingTypeText";
+            this.shippingTypeText.Size = new System.Drawing.Size(160, 22);
+            this.shippingTypeText.TabIndex = 35;
+            // 
             // DisplayQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 418);
+            this.Controls.Add(this.shippingTypeText);
+            this.Controls.Add(this.surfaceMaterialText);
             this.Controls.Add(this.quotePriceBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -284,8 +285,6 @@
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.todaysDate);
             this.Controls.Add(this.customerName);
-            this.Controls.Add(this.comShippingType);
-            this.Controls.Add(this.comSurfaceMaterial);
             this.Controls.Add(this.numDrawers);
             this.Controls.Add(this.numDepth);
             this.Controls.Add(this.numWidth);
@@ -316,8 +315,6 @@
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label todaysDate;
         private System.Windows.Forms.TextBox customerName;
-        private System.Windows.Forms.ComboBox comShippingType;
-        private System.Windows.Forms.ComboBox comSurfaceMaterial;
         private System.Windows.Forms.NumericUpDown numDrawers;
         private System.Windows.Forms.NumericUpDown numDepth;
         private System.Windows.Forms.NumericUpDown numWidth;
@@ -330,5 +327,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox quotePriceBox;
+        private System.Windows.Forms.TextBox surfaceMaterialText;
+        private System.Windows.Forms.TextBox shippingTypeText;
     }
 }
