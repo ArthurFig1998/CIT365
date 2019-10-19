@@ -14,9 +14,17 @@ namespace MegaDesk
 {
     public partial class DisplayQuote : Form
     {
-        public DisplayQuote()
+        public DisplayQuote(DeskQuote quote)
         {
             InitializeComponent();
+
+            numWidth.Value = quote.Desk.Width;
+            numDepth.Value = quote.Desk.Depth;
+            comSurfaceMaterial.SelectedItem = quote.Desk.SurfaceMaterial;
+            comShippingType.SelectedItem = quote.ShippingType;
+            numDrawers.Value = quote.Desk.NumberOfDrawers;
+
+            quotePriceBox.Text = Convert.ToString(quote.QuotePrice);
         }
 
         private void DisplayQuote_FormClosed(object sender, FormClosedEventArgs e)

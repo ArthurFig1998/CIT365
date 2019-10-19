@@ -52,60 +52,67 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(64, 100);
+            this.nameLabel.Location = new System.Drawing.Point(85, 123);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(35, 13);
+            this.nameLabel.Size = new System.Drawing.Size(109, 17);
             this.nameLabel.TabIndex = 0;
-            this.nameLabel.Text = "Name";
+            this.nameLabel.Text = "Customer Name";
             // 
             // Width
             // 
             this.Width.AutoSize = true;
-            this.Width.Location = new System.Drawing.Point(13, 164);
+            this.Width.Location = new System.Drawing.Point(17, 202);
+            this.Width.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Width.Name = "Width";
-            this.Width.Size = new System.Drawing.Size(35, 13);
+            this.Width.Size = new System.Drawing.Size(44, 17);
             this.Width.TabIndex = 1;
             this.Width.Text = "Width";
             // 
             // Depth
             // 
             this.Depth.AutoSize = true;
-            this.Depth.Location = new System.Drawing.Point(12, 203);
+            this.Depth.Location = new System.Drawing.Point(16, 250);
+            this.Depth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Depth.Name = "Depth";
-            this.Depth.Size = new System.Drawing.Size(36, 13);
+            this.Depth.Size = new System.Drawing.Size(46, 17);
             this.Depth.TabIndex = 2;
             this.Depth.Text = "Depth";
             // 
             // NumberOfDrawers
             // 
             this.NumberOfDrawers.AutoSize = true;
-            this.NumberOfDrawers.Location = new System.Drawing.Point(162, 241);
+            this.NumberOfDrawers.Location = new System.Drawing.Point(216, 297);
+            this.NumberOfDrawers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NumberOfDrawers.Name = "NumberOfDrawers";
-            this.NumberOfDrawers.Size = new System.Drawing.Size(100, 13);
+            this.NumberOfDrawers.Size = new System.Drawing.Size(133, 17);
             this.NumberOfDrawers.TabIndex = 3;
             this.NumberOfDrawers.Text = "Number Of Drawers";
             // 
             // SurfaceMaterial
             // 
             this.SurfaceMaterial.AutoSize = true;
-            this.SurfaceMaterial.Location = new System.Drawing.Point(276, 165);
+            this.SurfaceMaterial.Location = new System.Drawing.Point(368, 203);
+            this.SurfaceMaterial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SurfaceMaterial.Name = "SurfaceMaterial";
-            this.SurfaceMaterial.Size = new System.Drawing.Size(112, 13);
+            this.SurfaceMaterial.Size = new System.Drawing.Size(147, 17);
             this.SurfaceMaterial.TabIndex = 4;
             this.SurfaceMaterial.Text = "Desk Surface Material";
             // 
             // ShippingType
             // 
             this.ShippingType.AutoSize = true;
-            this.ShippingType.Location = new System.Drawing.Point(276, 204);
+            this.ShippingType.Location = new System.Drawing.Point(368, 251);
+            this.ShippingType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ShippingType.Name = "ShippingType";
-            this.ShippingType.Size = new System.Drawing.Size(75, 13);
+            this.ShippingType.Size = new System.Drawing.Size(99, 17);
             this.ShippingType.TabIndex = 5;
             this.ShippingType.Text = "Shipping Type";
             // 
             // numWidth
             // 
-            this.numWidth.Location = new System.Drawing.Point(105, 162);
+            this.numWidth.Location = new System.Drawing.Point(140, 199);
+            this.numWidth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numWidth.Maximum = new decimal(new int[] {
             96,
             0,
@@ -117,7 +124,7 @@
             0,
             0});
             this.numWidth.Name = "numWidth";
-            this.numWidth.Size = new System.Drawing.Size(120, 20);
+            this.numWidth.Size = new System.Drawing.Size(160, 22);
             this.numWidth.TabIndex = 6;
             this.numWidth.Value = new decimal(new int[] {
             24,
@@ -127,7 +134,8 @@
             // 
             // numDepth
             // 
-            this.numDepth.Location = new System.Drawing.Point(105, 201);
+            this.numDepth.Location = new System.Drawing.Point(140, 247);
+            this.numDepth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numDepth.Maximum = new decimal(new int[] {
             48,
             0,
@@ -139,7 +147,7 @@
             0,
             0});
             this.numDepth.Name = "numDepth";
-            this.numDepth.Size = new System.Drawing.Size(120, 20);
+            this.numDepth.Size = new System.Drawing.Size(160, 22);
             this.numDepth.TabIndex = 7;
             this.numDepth.Value = new decimal(new int[] {
             12,
@@ -149,61 +157,68 @@
             // 
             // numDrawers
             // 
-            this.numDrawers.Location = new System.Drawing.Point(295, 239);
+            this.numDrawers.Location = new System.Drawing.Point(393, 294);
+            this.numDrawers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numDrawers.Maximum = new decimal(new int[] {
             7,
             0,
             0,
             0});
             this.numDrawers.Name = "numDrawers";
-            this.numDrawers.Size = new System.Drawing.Size(36, 20);
+            this.numDrawers.Size = new System.Drawing.Size(48, 22);
             this.numDrawers.TabIndex = 8;
             // 
             // comSurfaceMaterial
             // 
             this.comSurfaceMaterial.FormattingEnabled = true;
-            this.comSurfaceMaterial.Location = new System.Drawing.Point(420, 162);
+            this.comSurfaceMaterial.Location = new System.Drawing.Point(560, 199);
+            this.comSurfaceMaterial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comSurfaceMaterial.Name = "comSurfaceMaterial";
-            this.comSurfaceMaterial.Size = new System.Drawing.Size(121, 21);
+            this.comSurfaceMaterial.Size = new System.Drawing.Size(160, 24);
             this.comSurfaceMaterial.TabIndex = 9;
             // 
             // comShippingType
             // 
             this.comShippingType.FormattingEnabled = true;
-            this.comShippingType.Location = new System.Drawing.Point(420, 201);
+            this.comShippingType.Location = new System.Drawing.Point(560, 247);
+            this.comShippingType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comShippingType.Name = "comShippingType";
-            this.comShippingType.Size = new System.Drawing.Size(121, 21);
+            this.comShippingType.Size = new System.Drawing.Size(160, 24);
             this.comShippingType.TabIndex = 10;
             // 
             // customerName
             // 
-            this.customerName.Location = new System.Drawing.Point(165, 97);
+            this.customerName.Location = new System.Drawing.Point(220, 119);
+            this.customerName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.customerName.Name = "customerName";
-            this.customerName.Size = new System.Drawing.Size(250, 20);
+            this.customerName.Size = new System.Drawing.Size(332, 22);
             this.customerName.TabIndex = 11;
             // 
             // todaysDate
             // 
             this.todaysDate.AutoSize = true;
-            this.todaysDate.Location = new System.Drawing.Point(225, 13);
+            this.todaysDate.Location = new System.Drawing.Point(300, 16);
+            this.todaysDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.todaysDate.Name = "todaysDate";
-            this.todaysDate.Size = new System.Drawing.Size(0, 13);
+            this.todaysDate.Size = new System.Drawing.Size(0, 17);
             this.todaysDate.TabIndex = 12;
             // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(276, 24);
+            this.dateLabel.Location = new System.Drawing.Point(368, 30);
+            this.dateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(0, 13);
+            this.dateLabel.Size = new System.Drawing.Size(0, 17);
             this.dateLabel.TabIndex = 13;
             // 
             // sendQuote
             // 
             this.sendQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendQuote.Location = new System.Drawing.Point(455, 289);
+            this.sendQuote.Location = new System.Drawing.Point(607, 356);
+            this.sendQuote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sendQuote.Name = "sendQuote";
-            this.sendQuote.Size = new System.Drawing.Size(75, 23);
+            this.sendQuote.Size = new System.Drawing.Size(100, 28);
             this.sendQuote.TabIndex = 14;
             this.sendQuote.Text = "Submit";
             this.sendQuote.UseVisualStyleBackColor = true;
@@ -213,17 +228,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(182, 24);
+            this.label1.Location = new System.Drawing.Point(243, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 31);
+            this.label1.Size = new System.Drawing.Size(270, 39);
             this.label1.TabIndex = 15;
             this.label1.Text = "Add New Quote";
             // 
             // AddQuote
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 340);
+            this.ClientSize = new System.Drawing.Size(757, 418);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.sendQuote);
             this.Controls.Add(this.dateLabel);
@@ -240,6 +256,7 @@
             this.Controls.Add(this.Depth);
             this.Controls.Add(this.Width);
             this.Controls.Add(this.nameLabel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddQuote";
             this.Text = "Add New Quote";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);

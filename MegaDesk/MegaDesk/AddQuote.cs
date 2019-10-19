@@ -101,12 +101,12 @@ namespace MegaDesk
 
             addToFile(quote);
 
-            System.Windows.Forms.MessageBox.Show("Added quote. The price is: " + quote.QuotePrice);
-            (new MainMenu()).Show();
+            // DEBUGGING:
+            // System.Windows.Forms.MessageBox.Show("Added quote. The price is: " + quote.QuotePrice);
+
+            DisplayQuote display = new DisplayQuote(quote);
+            display.Show();
             Hide();
-
-            
-
         }
     }
 }
