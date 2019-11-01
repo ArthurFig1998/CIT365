@@ -32,9 +32,12 @@ namespace ScriptureJournal.Models
 
         [Display(Name = "Book Name")]
         [EnumDataType(typeof(BookName))]
+        [Required]
         public BookName Book { get; set; }
 
+        [Required]
         public int Chapter { get; set; }
+        [Required]
         public int Verse { get; set; }
         public string Notes { get; set; }
     }
