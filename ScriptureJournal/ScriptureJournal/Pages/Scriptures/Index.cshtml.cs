@@ -23,6 +23,7 @@ namespace ScriptureJournal.Pages.Scriptures
         public IList<Scripture> Scripture { get;set; }
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
+        public string BookSearch { get; set; }
         // Requires using Microsoft.AspNetCore.Mvc.Rendering;
         public SelectList Books { get; set; }
         [BindProperty(SupportsGet = true)]
@@ -41,12 +42,13 @@ namespace ScriptureJournal.Pages.Scriptures
             {
                 scriptures = scriptures.Where(s => s.Notes.Contains(SearchString));
             }
-
             
-            if (!string.IsNullOrEmpty(NameOfBook.ToString()))
+            /*
+            if (!string.IsNullOrEmpty(BookSearch))
             {
-                scriptures = scriptures.Where(x => x.Book == NameOfBook);
+                scriptures = scriptures.Where(x => x.Book.ToString() == BookSearch);
             }
+            */
 
             Scripture = await scriptures.ToListAsync();
             Books = new SelectList(await bookQuery.Distinct().ToListAsync());

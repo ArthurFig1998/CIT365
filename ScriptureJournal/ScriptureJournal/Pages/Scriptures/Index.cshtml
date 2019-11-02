@@ -12,9 +12,7 @@
 </p>
 <form>
     <p>
-        <select asp-for="NameOfBook" asp-items="Html.GetEnumSelectList<ScriptureJournal.Models.BookName>()">
-            <option value="">All</option>
-        </select>
+        <!--Book: <input type="text" asp-for="BookSearch" />-->
         Notes: <input type="text" asp-for="SearchString" />
         <input type="submit" value="Filter" />
     </p>
