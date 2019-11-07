@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 using MegaDeskWeb.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace MegaDesk
 {
@@ -23,6 +24,8 @@ namespace MegaDesk
 
 
         public int DeskQuoteId { get; set; }
+
+        [Display(Name = "Customer Name")]
         public string CustomerName { get; set; }
 
         public DateTime QuoteDate { get; set; }

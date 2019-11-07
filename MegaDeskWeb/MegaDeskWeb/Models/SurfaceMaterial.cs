@@ -9,7 +9,7 @@ namespace MegaDeskWeb.Models
     {
         public int SurfaceMaterialId { get; set; }
 
-        public int SurfaceMaterialName { get; set; }
+        public string SurfaceMaterialName { get; set; }
 
         public decimal Cost { get; set; }
     }
