@@ -20,6 +20,7 @@ namespace MegaDesk
         [Display(Name = "Number of Drawers")]
         public int NumberOfDrawers { get; set; }
 
+        /*Navigation  property*/
         public SurfaceMaterial SurfaceMaterial { get; set; }
     }
 }
