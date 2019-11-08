@@ -15,9 +15,24 @@ namespace MegaDeskWeb.Pages.DeskQuotes
     {
         private readonly MegaDeskWeb.Models.MegaDeskWebContext _context;
 
+        [BindProperty]
+        public SelectList SurfaceMaterialList { get; set; }
+        public SelectList ShippingList { get; set; }
+
         public EditModel(MegaDeskWeb.Models.MegaDeskWebContext context)
         {
             _context = context;
+
+            IQueryable<string> surfaceMaterialQuery = from m in _context.SurfaceMaterial
+                                                      orderby m.SurfaceMaterialName
+                                                      select m.SurfaceMaterialName;
+
+            IQueryable<string> shippingTypeQuery = from m in _context.Shipping
+                                                   orderby m.ShippingType
+                                                   select m.ShippingType;
+
+            SurfaceMaterialList = new SelectList(surfaceMaterialQuery.Distinct().ToList());
+            ShippingList = new SelectList(shippingTypeQuery.Distinct().ToList());
         }
 
         [BindProperty]
