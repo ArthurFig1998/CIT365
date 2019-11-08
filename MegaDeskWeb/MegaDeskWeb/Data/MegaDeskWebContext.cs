@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MegaDesk;
+using MegaDeskWeb.Models;
 
 namespace MegaDeskWeb.Models
 {
@@ -15,5 +16,11 @@ namespace MegaDeskWeb.Models
         }
 
         public DbSet<MegaDesk.DeskQuote> DeskQuote { get; set; }
+
+        public DbSet<MegaDesk.Desk> Desk { get; set; }
+
+        public DbSet<MegaDeskWeb.Models.SurfaceMaterial> SurfaceMaterial { get; set; }
+
+        public DbSet<MegaDeskWeb.Models.Shipping> Shipping { get; set; }
     }
 }

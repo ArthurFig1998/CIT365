@@ -22,5 +22,10 @@ namespace MegaDesk
 
         /*Navigation  property*/
         public SurfaceMaterial SurfaceMaterial { get; set; }
+
+        public decimal surfaceArea()
+        {
+            return Width * Depth;
+        }
     }
 }

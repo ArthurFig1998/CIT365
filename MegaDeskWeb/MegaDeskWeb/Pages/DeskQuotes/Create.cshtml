@@ -27,8 +27,8 @@
                 <input asp-for="DeskQuote.Desk.Width" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="DeskQuote.Desk.SurfaceMaterial" class="control-label"></label>
-                <select asp-for="DeskQuote.Desk.SurfaceMaterial.SurfaceMaterialName" class="form-control" asp-items="ViewBag.Desk"></select>
+                <label asp-for="DeskQuote.Desk.SurfaceMaterial.SurfaceMaterialName" class="control-label"></label>
+                <select asp-for="DeskQuote.Desk.SurfaceMaterial.SurfaceMaterialName" class="form-control" asp-items="Model.SurfaceMaterialList"></select>
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.Desk.NumberOfDrawers" class="control-label"></label>
@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.Shipping.ShippingType" class="control-label"></label>
-                <select asp-for="DeskQuote.Shipping.ShippingType" class="form-control" asp-items="ViewBag.Shipping"></select>
+                <select asp-for="DeskQuote.Shipping.ShippingType" class="form-control" asp-items="Model.ShippingList"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

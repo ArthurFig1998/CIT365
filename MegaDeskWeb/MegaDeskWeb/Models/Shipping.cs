@@ -20,5 +20,10 @@ namespace MegaDeskWeb.Models
         public decimal Over2000 { get; set; }
 
         //public decimal StandardShipping { get; set; }
+
+        //public decimal shippingPrice()
+        //{
+        //    return ;
+        //}
     }
 }
