@@ -18,11 +18,11 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
         [BindProperty]
         public DeskQuote DeskQuote { get; set; }
-        [BindProperty]
         public SelectList SurfaceMaterialList { get; set; }
         public SelectList ShippingList { get; set; }
         public SurfaceMaterial SurfaceMaterial { get; set; }
         public Shipping Shipping { get; set; }
+        [BindProperty]
         public Desk Desk { get; set; }
         public int deliveryCost { get; set; }
 
@@ -44,8 +44,8 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
         public IActionResult OnGet()
         {
-            ViewData["DeskId"] = new SelectList(_context.Set<Desk>(), "DeskId", "DeskId");
-            ViewData["ShippingId"] = new SelectList(_context.Set<Shipping>(), "ShippingId", "ShippingId");
+            ViewData["SurfaceMaterialId"] = new SelectList(_context.Set<SurfaceMaterial>(), "SurfaceMaterialId", "SurfaceMaterialName");
+            ViewData["ShippingId"] = new SelectList(_context.Set<Shipping>(), "ShippingId", "ShippingType");
             return Page();
         }
 
@@ -57,21 +57,27 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                 return Page();
             }
 
+            _context.Desk.Add(Desk);
+            await _context.SaveChangesAsync();
+
+            DeskQuote.DeskId = Desk.DeskId;
             DeskQuote.QuoteDate = DateTime.Now;
-            decimal SurfaceArea = DeskQuote.Desk.surfaceArea();
+
+            ///copy from here to m
+            decimal SurfaceArea = Desk.surfaceArea();
             //decimal ShippingType = DeskQuote.Shipping.shippingPrice();
 
-            string ShippingType = DeskQuote.Shipping.ShippingType;
+            decimal ShippingType = DeskQuote.ShippingId;
             
             switch (ShippingType)
             {
-                case "3Day":
+                case 1:
                     deliveryCost = 3;
                     break;
-                case "5Day":
+                case 2:
                     deliveryCost = 5;
                     break;
-                case "7Day":
+                case 3:
                     deliveryCost = 7;
                     break;
                 default:
@@ -151,7 +157,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             decimal SurfaceAreaPrice = calculateSurfaceAreaPrice(SurfaceArea);
 
 
-            decimal SurfaceMaterial = DeskQuote.Desk.SurfaceMaterial.SurfaceMaterialId;
+            decimal SurfaceMaterial = Desk.SurfaceMaterialId;
             decimal SurfaceMaterialCost = 50;
             switch (SurfaceMaterial)
             {
@@ -184,7 +190,8 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                 return finalPrice;
             }
 
-            DeskQuote.QuotePrice = calculatePrice(ShippingPrice, SurfaceMaterialCost, SurfaceAreaPrice, DeskQuote.Desk.NumberOfDrawers);
+            DeskQuote.QuotePrice = calculatePrice(ShippingPrice, SurfaceMaterialCost, SurfaceAreaPrice, Desk.NumberOfDrawers);
+
             _context.DeskQuote.Add(DeskQuote);
             await _context.SaveChangesAsync();
 
