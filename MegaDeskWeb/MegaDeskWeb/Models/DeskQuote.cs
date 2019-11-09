@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.IO;
 using Newtonsoft.Json;
 using MegaDeskWeb.Models;
@@ -15,24 +19,18 @@ namespace MegaDesk
         const decimal BASE_DESK_PRICE = 200.00M;
         const decimal PRICE_PER_INCH = 1.00M;
         const decimal DRAWER_COST = 50.00M;
-        //const decimal OAK_COST = 200.00M;
-        //const decimal LAMINATE_COST = 100.00M;
-        //const decimal PINE_COST = 50.00M;
-        //const decimal ROSEWOOD_COST = 300.00M;
-        //const decimal VENEER_COST = 125.00M;
-
-
 
         public int DeskQuoteId { get; set; }
 
         [Display(Name = "Customer Name")]
         public string CustomerName { get; set; }
 
+        [Display(Name = "Date")]
         public DateTime QuoteDate { get; set; }
 
         public int ShippingId { get; set; }
 
-
+        [Display(Name = "Price")]
         public decimal QuotePrice { get; set; }
 
         public int DeskId { get; set; }
@@ -40,6 +38,74 @@ namespace MegaDesk
         /*NAV  prop*/
         public Desk Desk { get; set; }
         public Shipping Shipping { get; set; }
+
+
+        public decimal getQuotePrice(Desk Desk, DeskQuote DeskQuote)
+        {
+            //Sets base price to order
+            decimal total = BASE_DESK_PRICE;
+
+            //Get the surface area
+            decimal SurfaceArea = Desk.surfaceArea();
+
+            //Initializes the surface area price
+            decimal SurfaceAreaPrice = 0M;
+
+            //Add the price of the table if it is a certain size
+            if(SurfaceArea > 1000)
+            {
+                SurfaceAreaPrice = (SurfaceArea - 1000) * PRICE_PER_INCH;
+            }
+
+            //Add to the total
+            total += SurfaceAreaPrice;
+
+            //Get price for the drawers
+            decimal NumberOfDrawersPrice = Desk.NumberOfDrawers * DRAWER_COST;
+
+            //Add to the total
+            total += NumberOfDrawersPrice;
+
+            //Calculate shipping price pulling from database
+            //TO-DO
+
+            //Calculate the surface material price pulling from database
+            //TO-DO
+
+            //Calculate the final price of the order
+            //TO-DO
+
+
+
+
+
+
+            //Previous code
+
+            //var shippingOptions = from m in MegaDeskWeb.Models.MegaDeskWebContext
+            //                      select m;
+
+            //shippingOptions = shippingOptions.Where(s => s.Sh);
+
+            //decimal ShippingType = ShippingId;
+
+            //switch (ShippingType)
+            //{
+            //    case 1:
+            //        deliveryCost = 3;
+            //        break;
+            //    case 2:
+            //        deliveryCost = 5;
+            //        break;
+            //    case 3:
+            //        deliveryCost = 7;
+            //        break;
+            //    default:
+            //        deliveryCost = 0;
+            //        break;
+            //}
+            return total;
+        }
 
         //public decimal getQuotePrice()
         //{

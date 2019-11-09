@@ -21,6 +21,7 @@ namespace MegaDesk
         public int NumberOfDrawers { get; set; }
 
         /*Navigation  property*/
+        [Display(Name = "Material")]
         public SurfaceMaterial SurfaceMaterial { get; set; }
 
         public decimal surfaceArea()

@@ -64,133 +64,132 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             DeskQuote.QuoteDate = DateTime.Now;
 
             ///copy from here to m
-            decimal SurfaceArea = Desk.surfaceArea();
-            //decimal ShippingType = DeskQuote.Shipping.shippingPrice();
+            //decimal SurfaceArea = Desk.surfaceArea();
 
-            decimal ShippingType = DeskQuote.ShippingId;
-            
-            switch (ShippingType)
-            {
-                case 1:
-                    deliveryCost = 3;
-                    break;
-                case 2:
-                    deliveryCost = 5;
-                    break;
-                case 3:
-                    deliveryCost = 7;
-                    break;
-                default:
-                    deliveryCost = 0;
-                    break;
-            }
+            //decimal ShippingType = DeskQuote.ShippingId;
 
-            decimal calculateShippingPrice(decimal pvSurfaceArea, decimal pvShippingType)
-            {
+            //switch (ShippingType)
+            //{
+            //    case 1:
+            //        deliveryCost = 3;
+            //        break;
+            //    case 2:
+            //        deliveryCost = 5;
+            //        break;
+            //    case 3:
+            //        deliveryCost = 7;
+            //        break;
+            //    default:
+            //        deliveryCost = 0;
+            //        break;
+            //}
 
-                decimal ShippingCost = 0M;
+            //decimal calculateShippingPrice(decimal pvSurfaceArea, decimal pvShippingType)
+            //{
 
-                if (pvShippingType == 3)
-                {
-                    if (pvSurfaceArea < 1000)
-                    {
-                        ShippingCost = 60;
-                    }
-                    else if (pvSurfaceArea > 1000 && pvSurfaceArea < 2000)
-                    {
-                        ShippingCost = 70;
-                    }
-                    else if (pvSurfaceArea > 2000)
-                    {
-                        ShippingCost = 80;
-                    }
-                }
-                else if (pvShippingType == 5)
-                {
-                    if (pvSurfaceArea < 1000)
-                    {
-                        ShippingCost = 40;
-                    }
-                    else if (pvSurfaceArea > 1000 && pvSurfaceArea < 2000)
-                    {
-                        ShippingCost = 50;
-                    }
-                    else if (pvSurfaceArea > 2000)
-                    {
-                        ShippingCost = 60;
-                    }
-                }
-                else if (pvShippingType == 7)
-                {
-                    if (pvSurfaceArea < 1000)
-                    {
-                        ShippingCost = 30;
-                    }
-                    else if (pvSurfaceArea > 1000 && pvSurfaceArea < 2000)
-                    {
-                        ShippingCost = 35;
-                    }
-                    else if (pvSurfaceArea > 2000)
-                    {
-                        ShippingCost = 40;
-                    }
-                }
-                else
-                {
-                    ShippingCost = 0;
-                }
-                return ShippingCost;
-            }
+            //    decimal ShippingCost = 0M;
 
-            decimal ShippingPrice = calculateShippingPrice(SurfaceArea, deliveryCost);
+            //    if (pvShippingType == 3)
+            //    {
+            //        if (pvSurfaceArea < 1000)
+            //        {
+            //            ShippingCost = 60;
+            //        }
+            //        else if (pvSurfaceArea > 1000 && pvSurfaceArea < 2000)
+            //        {
+            //            ShippingCost = 70;
+            //        }
+            //        else if (pvSurfaceArea > 2000)
+            //        {
+            //            ShippingCost = 80;
+            //        }
+            //    }
+            //    else if (pvShippingType == 5)
+            //    {
+            //        if (pvSurfaceArea < 1000)
+            //        {
+            //            ShippingCost = 40;
+            //        }
+            //        else if (pvSurfaceArea > 1000 && pvSurfaceArea < 2000)
+            //        {
+            //            ShippingCost = 50;
+            //        }
+            //        else if (pvSurfaceArea > 2000)
+            //        {
+            //            ShippingCost = 60;
+            //        }
+            //    }
+            //    else if (pvShippingType == 7)
+            //    {
+            //        if (pvSurfaceArea < 1000)
+            //        {
+            //            ShippingCost = 30;
+            //        }
+            //        else if (pvSurfaceArea > 1000 && pvSurfaceArea < 2000)
+            //        {
+            //            ShippingCost = 35;
+            //        }
+            //        else if (pvSurfaceArea > 2000)
+            //        {
+            //            ShippingCost = 40;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        ShippingCost = 0;
+            //    }
+            //    return ShippingCost;
+            //}
 
-            decimal calculateSurfaceAreaPrice(decimal pvSurfaceArea)
-            {
-                decimal SurfaceAreaAddedCost = 0M;
-                if (pvSurfaceArea > 1000)
-                {
-                    SurfaceAreaAddedCost = pvSurfaceArea - 1000;
-                }
-                return SurfaceAreaAddedCost;
-            }
+            //decimal ShippingPrice = calculateShippingPrice(SurfaceArea, deliveryCost);
 
-            decimal SurfaceAreaPrice = calculateSurfaceAreaPrice(SurfaceArea);
+            //decimal calculateSurfaceAreaPrice(decimal pvSurfaceArea)
+            //{
+            //    decimal SurfaceAreaAddedCost = 0M;
+            //    if (pvSurfaceArea > 1000)
+            //    {
+            //        SurfaceAreaAddedCost = pvSurfaceArea - 1000;
+            //    }
+            //    return SurfaceAreaAddedCost;
+            //}
 
-
-            decimal SurfaceMaterial = Desk.SurfaceMaterialId;
-            decimal SurfaceMaterialCost = 50;
-            switch (SurfaceMaterial)
-            {
-                case 1:
-                    SurfaceMaterialCost = 200;
-                    break;
-                case 2:
-                    SurfaceMaterialCost = 100;
-                    break;
-                case 3:
-                    SurfaceMaterialCost = 50;
-                    break;
-                case 4:
-                    SurfaceMaterialCost = 300;
-                    break;
-                case 5:
-                    SurfaceMaterialCost = 125;
-                    break;
-                default:
-                    break;
-            }
-
-            decimal calculatePrice(decimal pvShippingPrice, decimal pvSurfaceMaterialPrice, decimal pvSurfaceAreaPrice, int pvNumberOfDrawers)
-            {
-                decimal finalPrice = 200M;
-
-                finalPrice += pvShippingPrice + pvSurfaceMaterialPrice + pvSurfaceAreaPrice + (pvNumberOfDrawers * PRICE_PER_DRAWER);
+            //decimal SurfaceAreaPrice = calculateSurfaceAreaPrice(SurfaceArea);
 
 
-                return finalPrice;
-            }
+            //decimal SurfaceMaterial = Desk.SurfaceMaterialId;
+            //decimal SurfaceMaterialCost = 50;
+            //switch (SurfaceMaterial)
+            //{
+            //    case 1:
+            //        SurfaceMaterialCost = 200;
+            //        break;
+            //    case 2:
+            //        SurfaceMaterialCost = 100;
+            //        break;
+            //    case 3:
+            //        SurfaceMaterialCost = 50;
+            //        break;
+            //    case 4:
+            //        SurfaceMaterialCost = 300;
+            //        break;
+            //    case 5:
+            //        SurfaceMaterialCost = 125;
+            //        break;
+            //    default:
+            //        break;
+            //}
 
-            DeskQuote.QuotePrice = calculatePrice(ShippingPrice, SurfaceMaterialCost, SurfaceAreaPrice, Desk.NumberOfDrawers);
+            //decimal calculatePrice(decimal pvShippingPrice, decimal pvSurfaceMaterialPrice, decimal pvSurfaceAreaPrice, int pvNumberOfDrawers)
+            //{
+            //    decimal finalPrice = 200M;
+
+            //    finalPrice += pvShippingPrice + pvSurfaceMaterialPrice + pvSurfaceAreaPrice + (pvNumberOfDrawers * PRICE_PER_DRAWER);
+
+
+            //    return finalPrice;
+            //}
+
+            DeskQuote.QuotePrice = DeskQuote.getQuotePrice(Desk, DeskQuote);
 
             _context.DeskQuote.Add(DeskQuote);
             await _context.SaveChangesAsync();
