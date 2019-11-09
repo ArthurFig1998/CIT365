@@ -69,6 +69,56 @@ namespace MegaDesk
             //Calculate shipping price pulling from database
             //TO-DO
 
+            //Initialize shipping cost with default value
+            decimal ShippingCost = 0;
+
+            if(Shipping.ShippingId == 1)
+            {
+                if(SurfaceArea < 1000)
+                {
+                    
+                }
+                else if(SurfaceArea > 1000 && SurfaceArea < 2000)
+                {
+
+                }
+                else if(SurfaceArea > 2000)
+                {
+
+                }
+            }
+            else if(Shipping.ShippingId == 2)
+            {
+                if (SurfaceArea < 1000)
+                {
+
+                }
+                else if (SurfaceArea > 1000 && SurfaceArea < 2000)
+                {
+
+                }
+                else if (SurfaceArea > 2000)
+                {
+
+                }
+            }
+
+            else if(Shipping.ShippingId == 3)
+            {
+                if (SurfaceArea < 1000)
+                {
+
+                }
+                else if (SurfaceArea > 1000 && SurfaceArea < 2000)
+                {
+
+                }
+                else if (SurfaceArea > 2000)
+                {
+
+                }
+            }
+
             //Calculate the surface material price pulling from database
             //TO-DO
 
