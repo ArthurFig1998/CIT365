@@ -19,6 +19,8 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         public SelectList SurfaceMaterialList { get; set; }
         public SelectList ShippingList { get; set; }
 
+        [BindProperty]
+        public Desk Desk { get; set; }
         public EditModel(MegaDeskWeb.Models.MegaDeskWebContext context)
         {
             _context = context;
@@ -53,8 +55,8 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             {
                 return NotFound();
             }
-           ViewData["DeskId"] = new SelectList(_context.Set<Desk>(), "DeskId", "DeskId");
-           ViewData["ShippingId"] = new SelectList(_context.Set<Shipping>(), "ShippingId", "ShippingId");
+            ViewData["SurfaceMaterialId"] = new SelectList(_context.Set<SurfaceMaterial>(), "SurfaceMaterialId", "SurfaceMaterialName");
+            ViewData["ShippingId"] = new SelectList(_context.Set<Shipping>(), "ShippingId", "ShippingType");
             return Page();
         }
 
@@ -65,6 +67,13 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                 return Page();
             }
 
+            DeskQuote.Desk = Desk;
+            DeskQuote.DeskId = Desk.DeskId;
+            DeskQuote.QuoteDate = DateTime.Now;
+
+
+
+            DeskQuote.QuotePrice = DeskQuote.getQuotePrice(_context);
             _context.Attach(DeskQuote).State = EntityState.Modified;
 
             try
