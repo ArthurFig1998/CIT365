@@ -25,6 +25,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         {
             DeskQuote = await _context.DeskQuote
                 .Include(d => d.Desk)
+                .Include(d => d.Desk.SurfaceMaterial)
                 .Include(d => d.Shipping).ToListAsync();
         }
     }

@@ -14,26 +14,28 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="DeskQuote.DeskQuoteId" />
+            <input type="hidden" asp-for="DeskQuote.DeskId" />
+            <input type="hidden" asp-for="DeskQuote.Desk.DeskId" />
             <div class="form-group">
                 <label asp-for="DeskQuote.CustomerName" class="control-label"></label>
                 <input asp-for="DeskQuote.CustomerName" class="form-control" />
                 <span asp-validation-for="DeskQuote.CustomerName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Desk.Depth" class="control-label"></label>
-                <input asp-for="Desk.Depth" class="form-control" />
+                <label asp-for="DeskQuote.Desk.Depth" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.Depth" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Desk.Width" class="control-label"></label>
-                <input asp-for="Desk.Width" class="form-control" />
+                <label asp-for="DeskQuote.Desk.Width" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.Width" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Desk.SurfaceMaterialId" class="control-label"></label>
-                <select asp-for="Desk.SurfaceMaterialId" class="form-control" asp-items="ViewBag.SurfaceMaterialId"></select>
+                <label asp-for="DeskQuote.Desk.SurfaceMaterialId" class="control-label"></label>
+                <select asp-for="DeskQuote.Desk.SurfaceMaterialId" class="form-control" asp-items="ViewBag.SurfaceMaterialId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Desk.NumberOfDrawers" class="control-label"></label>
-                <input asp-for="Desk.NumberOfDrawers" type="number" class="form-control" />
+                <label asp-for="DeskQuote.Desk.NumberOfDrawers" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.NumberOfDrawers" type="number" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.ShippingId" class="control-label"></label>

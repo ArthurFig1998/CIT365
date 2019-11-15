@@ -15,7 +15,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
     {
         private readonly MegaDeskWeb.Models.MegaDeskWebContext _context;
 
-        [BindProperty]
+        
         public SelectList SurfaceMaterialList { get; set; }
         public SelectList ShippingList { get; set; }
 
@@ -57,6 +57,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             }
             ViewData["SurfaceMaterialId"] = new SelectList(_context.Set<SurfaceMaterial>(), "SurfaceMaterialId", "SurfaceMaterialName");
             ViewData["ShippingId"] = new SelectList(_context.Set<Shipping>(), "ShippingId", "ShippingType");
+         
             return Page();
         }
 
@@ -67,30 +68,30 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                 return Page();
             }
 
-            DeskQuote.Desk = Desk;
-            DeskQuote.DeskId = Desk.DeskId;
-            DeskQuote.QuoteDate = DateTime.Now;
+            //DeskQuote.Desk = Desk;
+            //DeskQuote.DeskId = Desk.DeskId;
+            //DeskQuote.QuoteDate = DateTime.Now;
 
 
 
             DeskQuote.QuotePrice = DeskQuote.getQuotePrice(_context);
             _context.Attach(DeskQuote).State = EntityState.Modified;
 
-            try
-            {
+            //try
+            //{
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!DeskQuoteExists(DeskQuote.DeskQuoteId))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!DeskQuoteExists(DeskQuote.DeskQuoteId))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
 
             return RedirectToPage("./Index");
         }
