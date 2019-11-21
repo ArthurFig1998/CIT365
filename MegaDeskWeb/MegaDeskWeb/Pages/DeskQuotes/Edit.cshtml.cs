@@ -65,11 +65,15 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                var errors = ModelState.Where(x => x.Value.Errors.Count > 0)
+                    .Select(x => new { x.Key, x.Value.Errors })
+                    .ToArray();
             }
 
-            //DeskQuote.Desk = Desk;
-            //DeskQuote.DeskId = Desk.DeskId;
+
+
+            DeskQuote.Desk = Desk;
+            DeskQuote.DeskId = Desk.DeskId;
             //DeskQuote.QuoteDate = DateTime.Now;
 
 
@@ -77,21 +81,21 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             DeskQuote.QuotePrice = DeskQuote.getQuotePrice(_context);
             _context.Attach(DeskQuote).State = EntityState.Modified;
 
-            //try
-            //{
+            try
+            {
                 await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!DeskQuoteExists(DeskQuote.DeskQuoteId))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!DeskQuoteExists(DeskQuote.DeskQuoteId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return RedirectToPage("./Index");
         }
