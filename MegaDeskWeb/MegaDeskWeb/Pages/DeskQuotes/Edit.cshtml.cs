@@ -74,7 +74,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
             DeskQuote.Desk = Desk;
             DeskQuote.DeskId = Desk.DeskId;
-            //DeskQuote.QuoteDate = DateTime.Now;
+            DeskQuote.QuoteDate = DeskQuote.QuoteDate;
 
 
 

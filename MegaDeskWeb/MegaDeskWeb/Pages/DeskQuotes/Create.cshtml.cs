@@ -51,7 +51,9 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                var errors = ModelState.Where(x => x.Value.Errors.Count > 0)
+                    .Select(x => new { x.Key, x.Value.Errors })
+                    .ToArray();
             }
 
             _context.Desk.Add(Desk);
