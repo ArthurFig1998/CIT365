@@ -68,16 +68,16 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                 var errors = ModelState.Where(x => x.Value.Errors.Count > 0)
                     .Select(x => new { x.Key, x.Value.Errors })
                     .ToArray();
+                //return Page();
             }
 
 
 
             DeskQuote.Desk = Desk;
             DeskQuote.DeskId = Desk.DeskId;
-            DeskQuote.QuoteDate = DeskQuote.QuoteDate;
 
 
-
+            
             DeskQuote.QuotePrice = DeskQuote.getQuotePrice(_context);
             _context.Attach(DeskQuote).State = EntityState.Modified;
 
