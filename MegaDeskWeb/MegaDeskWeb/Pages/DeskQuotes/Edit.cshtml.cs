@@ -61,7 +61,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (!ModelState.IsValid)
             {
@@ -80,22 +80,29 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             
             DeskQuote.QuotePrice = DeskQuote.getQuotePrice(_context);
             _context.Attach(DeskQuote).State = EntityState.Modified;
+            var quoteToUpdate = await _context.DeskQuote.FirstOrDefaultAsync(d => d.DeskQuoteId == id);
+            //if (await TryUpdateModelAsync<DeskQuote>(
+            //    quoteToUpdate,
+            //    "",
+            //    d => d.CustomerName, d => d.Desk, d => d.QuotePrice, d => d.ShippingId))
+            //{
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!DeskQuoteExists(DeskQuote.DeskQuoteId))
+                try
                 {
-                    return NotFound();
+                    await _context.SaveChangesAsync();
                 }
-                else
+                catch (DbUpdateConcurrencyException)
                 {
-                    throw;
+                    if (!DeskQuoteExists(DeskQuote.DeskQuoteId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
-            }
+            //}
 
             return RedirectToPage("./Index");
         }
