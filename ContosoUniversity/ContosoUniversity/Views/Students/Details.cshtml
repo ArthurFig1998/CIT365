@@ -41,7 +41,14 @@
                 {
                     <tr>
                         <td>
+                            @if (item == null)
+                            {
+                                <p>Something wen't wrong</p>
+                            }
+                            else
+                            {
                             @Html.DisplayFor(modelItem => item.Course.Title)
+                            }
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Grade)
