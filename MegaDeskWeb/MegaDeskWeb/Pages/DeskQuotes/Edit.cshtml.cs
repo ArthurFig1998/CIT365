@@ -66,7 +66,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         }
         //[Bind("CustomerName, Desk, QuotePrice, Shipping")] DeskQuote deskQuote
         //
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
@@ -78,75 +78,31 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
 
 
+            
+            _context.Attach(DeskQuote).State = EntityState.Modified;
+
             DeskQuote.Desk = Desk;
             DeskQuote.DeskId = Desk.DeskId;
-            DeskQuote.DeskQuoteId = DeskQuote.DeskQuoteId;
-
-            //var deskQuoteQuery = _context.DeskQuote
-            //    .SelectMany(dq => dq.CustomerName, dq => dq.Desk, dq => dq.Shipping, dq => dq.QuotePrice)
-            //    .Where(dq => dq.DeskQuoteId == this.DeskQuote.DeskQuoteId);
-
-            //IQueryable<string> deskQuoteEditQuery = from dq in _context.DeskQuote
-            //                                        select dq.CustomerName;
-
 
 
             DeskQuote.QuotePrice = DeskQuote.getQuotePrice(_context);
-            _context.Attach(DeskQuote).State = EntityState.Modified;
 
-
-            //var quoteToUpdate = await _context.DeskQuote.FirstOrDefaultAsync(dq => dq.DeskQuoteId == id);
-            //var deskToUpdate = await _context.Desk.FirstOrDefaultAsync(d => d.DeskId == quoteToUpdate.DeskId);
-
-            //if (await TryUpdateModelAsync<DeskQuote>(
-            //    quoteToUpdate,
-            //    "",
-            //    dq => dq.CustomerName, dq => dq.QuotePrice, dq => dq.ShippingId))
-            //{
-
-                try
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!DeskQuoteExists(DeskQuote.DeskQuoteId))
                 {
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!DeskQuoteExists(DeskQuote.DeskQuoteId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
-            //}
-            //if (await TryUpdateModelAsync<Desk>(
-            //    deskToUpdate,
-            //    "",
-            //    d => d.Width, d => d.Depth, d => d.SurfaceMaterialId, d => d.NumberOfDrawers))
-            //{
+            }
 
-            //    try
-            //    {
-            //        await _context.SaveChangesAsync();
-            //    }
-            //    catch (DbUpdateConcurrencyException)
-            //    {
-            //        if (!DeskQuoteExists(quoteToUpdate.DeskQuoteId))
-            //        {
-            //            return NotFound();
-            //        }
-            //        else
-            //        {
-            //            throw;
-            //        }
-            //    }
-            //}
-
-            //quoteToUpdate.Desk = deskToUpdate;
-
-            //quoteToUpdate.QuotePrice = quoteToUpdate.getQuotePrice(_context);
-            
 
             return RedirectToPage("./Index");
         }
