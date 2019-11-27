@@ -80,6 +80,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
             DeskQuote.Desk = Desk;
             DeskQuote.DeskId = Desk.DeskId;
+            DeskQuote.DeskQuoteId = DeskQuote.DeskQuoteId;
 
             //var deskQuoteQuery = _context.DeskQuote
             //    .SelectMany(dq => dq.CustomerName, dq => dq.Desk, dq => dq.Shipping, dq => dq.QuotePrice)
