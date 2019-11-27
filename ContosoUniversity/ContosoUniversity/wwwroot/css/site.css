@@ -54,8 +54,16 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
 }
-
-body {
-    background-color: yellow!important;
-    color: deeppink!important;
 }
+body {
+    background-color: gray!important;
+}
+
+nav {
+    background-color: darkblue!important;
+    color: white!important;
+}
+
+    nav a:hover {
+        color: gray!important;
+    }

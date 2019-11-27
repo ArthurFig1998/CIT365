@@ -1,4 +1,12 @@
 ﻿body {
-    background-color: yellow;
-    color: deeppink;
+    background-color: gray;
+}
+
+nav {
+    background-color: darkblue;
+    color: white;
+}
+
+nav a:hover {
+    color: gray;
 }
