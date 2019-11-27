@@ -19,8 +19,10 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         public SelectList SurfaceMaterialList { get; set; }
         public SelectList ShippingList { get; set; }
 
-        //[BindProperty]
-        //public Desk Desk { get; set; }
+        [BindProperty]
+        public Desk Desk { get; set; }
+
+        
         public EditModel(MegaDeskWeb.Models.MegaDeskWebContext context)
         {
             _context = context;
@@ -37,8 +39,8 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             ShippingList = new SelectList(shippingTypeQuery.Distinct().ToList());
         }
 
-        //[BindProperty]
-        //public DeskQuote DeskQuote { get; set; }
+        [BindProperty]
+        public DeskQuote DeskQuote { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -57,7 +59,9 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             }
             ViewData["SurfaceMaterialId"] = new SelectList(_context.Set<SurfaceMaterial>(), "SurfaceMaterialId", "SurfaceMaterialName");
             ViewData["ShippingId"] = new SelectList(_context.Set<Shipping>(), "ShippingId", "ShippingType");
-         
+
+            
+
             return Page();
         }
         //[Bind("CustomerName, Desk, QuotePrice, Shipping")] DeskQuote deskQuote
@@ -74,8 +78,8 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
 
 
-            //DeskQuote.Desk = Desk;
-            //DeskQuote.DeskId = Desk.DeskId;
+            DeskQuote.Desk = Desk;
+            DeskQuote.DeskId = Desk.DeskId;
 
             //var deskQuoteQuery = _context.DeskQuote
             //    .SelectMany(dq => dq.CustomerName, dq => dq.Desk, dq => dq.Shipping, dq => dq.QuotePrice)
@@ -86,18 +90,18 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
 
 
-            //DeskQuote.QuotePrice = DeskQuote.getQuotePrice(_context);
-            //_context.Attach(DeskQuote).State = EntityState.Modified;
+            DeskQuote.QuotePrice = DeskQuote.getQuotePrice(_context);
+            _context.Attach(DeskQuote).State = EntityState.Modified;
 
 
-            var quoteToUpdate = await _context.DeskQuote.FirstOrDefaultAsync(dq => dq.DeskQuoteId == id);
-            var deskToUpdate = await _context.Desk.FirstOrDefaultAsync(d => d.DeskId == quoteToUpdate.DeskId);
+            //var quoteToUpdate = await _context.DeskQuote.FirstOrDefaultAsync(dq => dq.DeskQuoteId == id);
+            //var deskToUpdate = await _context.Desk.FirstOrDefaultAsync(d => d.DeskId == quoteToUpdate.DeskId);
 
-            if (await TryUpdateModelAsync<DeskQuote>(
-                quoteToUpdate,
-                "",
-                dq => dq.CustomerName, dq => dq.QuotePrice, dq => dq.ShippingId))
-            {
+            //if (await TryUpdateModelAsync<DeskQuote>(
+            //    quoteToUpdate,
+            //    "",
+            //    dq => dq.CustomerName, dq => dq.QuotePrice, dq => dq.ShippingId))
+            //{
 
                 try
                 {
@@ -105,7 +109,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DeskQuoteExists(quoteToUpdate.DeskQuoteId))
+                    if (!DeskQuoteExists(DeskQuote.DeskQuoteId))
                     {
                         return NotFound();
                     }
@@ -114,33 +118,33 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                         throw;
                     }
                 }
-            }
-            if (await TryUpdateModelAsync<Desk>(
-                deskToUpdate,
-                "",
-                d => d.Width, d => d.Depth, d => d.SurfaceMaterialId, d => d.NumberOfDrawers))
-            {
+            //}
+            //if (await TryUpdateModelAsync<Desk>(
+            //    deskToUpdate,
+            //    "",
+            //    d => d.Width, d => d.Depth, d => d.SurfaceMaterialId, d => d.NumberOfDrawers))
+            //{
 
-                try
-                {
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!DeskQuoteExists(quoteToUpdate.DeskQuoteId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-            }
+            //    try
+            //    {
+            //        await _context.SaveChangesAsync();
+            //    }
+            //    catch (DbUpdateConcurrencyException)
+            //    {
+            //        if (!DeskQuoteExists(quoteToUpdate.DeskQuoteId))
+            //        {
+            //            return NotFound();
+            //        }
+            //        else
+            //        {
+            //            throw;
+            //        }
+            //    }
+            //}
 
-            quoteToUpdate.Desk = deskToUpdate;
+            //quoteToUpdate.Desk = deskToUpdate;
 
-            quoteToUpdate.QuotePrice = quoteToUpdate.getQuotePrice(_context);
+            //quoteToUpdate.QuotePrice = quoteToUpdate.getQuotePrice(_context);
             
 
             return RedirectToPage("./Index");
