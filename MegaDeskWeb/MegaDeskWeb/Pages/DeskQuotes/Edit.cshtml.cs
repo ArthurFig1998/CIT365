@@ -49,7 +49,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                 return NotFound();
             }
 
-            var DeskQuote = await _context.DeskQuote
+            DeskQuote = await _context.DeskQuote
                 .Include(d => d.Desk)
                 .Include(d => d.Shipping).FirstOrDefaultAsync(m => m.DeskQuoteId == id);
 
@@ -77,15 +77,15 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             }
 
 
-
-            
-            _context.Attach(DeskQuote).State = EntityState.Modified;
-
             DeskQuote.Desk = Desk;
             DeskQuote.DeskId = Desk.DeskId;
 
 
             DeskQuote.QuotePrice = DeskQuote.getQuotePrice(_context);
+
+            _context.Attach(DeskQuote).State = EntityState.Modified;
+
+            
 
             try
             {
