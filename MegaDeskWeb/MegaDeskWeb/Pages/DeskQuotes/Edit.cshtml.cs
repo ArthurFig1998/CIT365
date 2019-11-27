@@ -64,9 +64,14 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
             return Page();
         }
+<<<<<<< HEAD
         //[Bind("CustomerName, Desk, QuotePrice, Shipping")] DeskQuote deskQuote
         //
         public async Task<IActionResult> OnPostAsync(int? id)
+=======
+
+        public async Task<IActionResult> OnPostAsync()
+>>>>>>> parent of 23cf648... Trying to fix edit
         {
             if (!ModelState.IsValid)
             {
@@ -94,6 +99,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             DeskQuote.QuotePrice = DeskQuote.getQuotePrice(_context);
             _context.Attach(DeskQuote).State = EntityState.Modified;
 
+<<<<<<< HEAD
 
             //var quoteToUpdate = await _context.DeskQuote.FirstOrDefaultAsync(dq => dq.DeskQuoteId == id);
             //var deskToUpdate = await _context.Desk.FirstOrDefaultAsync(d => d.DeskId == quoteToUpdate.DeskId);
@@ -105,20 +111,23 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             //{
 
                 try
+=======
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!DeskQuoteExists(DeskQuote.DeskQuoteId))
+>>>>>>> parent of 23cf648... Trying to fix edit
                 {
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!DeskQuoteExists(DeskQuote.DeskQuoteId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
+<<<<<<< HEAD
             //}
             //if (await TryUpdateModelAsync<Desk>(
             //    deskToUpdate,
@@ -147,6 +156,9 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
             //quoteToUpdate.QuotePrice = quoteToUpdate.getQuotePrice(_context);
             
+=======
+            }
+>>>>>>> parent of 23cf648... Trying to fix edit
 
             return RedirectToPage("./Index");
         }
