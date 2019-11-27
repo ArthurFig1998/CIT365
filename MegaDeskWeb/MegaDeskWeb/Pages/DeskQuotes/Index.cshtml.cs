@@ -7,21 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MegaDesk;
 using MegaDeskWeb.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MegaDeskWeb.Pages.DeskQuotes
 {
     public class IndexModel : PageModel
     {
         private readonly MegaDeskWeb.Models.MegaDeskWebContext _context;
-
-        public IList<DeskQuote> Quote { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public string SearchString { get; set; }
-        // Requires using Microsoft.AspNetCore.Mvc.Rendering;
-        public SelectList Names { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public string QuoteName { get; set; }
 
         public IndexModel(MegaDeskWeb.Models.MegaDeskWebContext context)
         {
@@ -36,15 +27,6 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                 .Include(d => d.Desk)
                 .Include(d => d.Desk.SurfaceMaterial)
                 .Include(d => d.Shipping).ToListAsync();
-
-            var quotes = from m in _context.DeskQuote
-                         select m;
-            if (!string.IsNullOrEmpty(SearchString))
-            {
-                quotes = quotes.Where(s => s.CustomerName.Contains(SearchString));
-            }
-
-            DeskQuote = await quotes.ToListAsync();
         }
     }
 }
