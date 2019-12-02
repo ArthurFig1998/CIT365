@@ -7,5 +7,8 @@ namespace SacramentPlanner.Models
 {
     public class Meeting
     {
+        public int MeetingId { get; set; }
+        public int SpeakerId { get; set; }
+        public Speaker Speaker { get; set; }
     }
 }
